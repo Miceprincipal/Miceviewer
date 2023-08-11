@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #image-frame {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #current-image {
+            flex: 1;
+            max-height: 96%;
+            object-fit: contain;
+        }
+
+        #controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+        }
+
+        #json-frame {
+            flex: 1;
+            max-width: 50%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+        }
+
+        #json-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-frame">
+        <img id="current-image">
+        <div id="controls">
+            <button id="prev-button">Previous</button>
+            <button id="next-button">Next</button>
+            <button id="auto-2s-button">Auto 2s</button>
+            <button id="auto-3s-button">3s</button>
+            <button id="auto-5s-button">5s</button>
+            <button id="stop-button">Stop</button>
+        </div>
+    </div>
+    <div id="json-frame">
+        <iframe id="json-iframe" src=""></iframe>
+    </div>
+
+    <script>
+        const currentImage = document.getElementById('current-image');
+        const jsonIframe = document.getElementById('json-iframe');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const auto2sButton = document.getElementById('auto-2s-button');
+        const auto3sButton = document.getElementById('auto-3s-button');
+        const auto5sButton = document.getElementById('auto-5s-button');
+        const stopButton = document.getElementById('stop-button');
+
+        let currentImageIndex = 0;
+        const totalImages = 10000; // Assuming you have 10000 images (0.png to 9999.png)
+
+        let autoAdvanceInterval;
+
+        function loadAndDisplayImage(index) {
+            currentImage.src = `images/${index}.png`;
+            jsonIframe.src = `json/${index}.json`;
+        }
+
+        function autoAdvance(interval) {
+            clearInterval(autoAdvanceInterval);
+            autoAdvanceInterval = setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % totalImages;
+                loadAndDisplayImage(currentImageIndex);
+            }, interval);
+        }
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(autoAdvanceInterval);
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                loadAndDisplayImage(currentImageIndex);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentImageIndex < totalImages - 1) {
+                currentImageIndex++;
+                loadAndDisplayImage(currentImageIndex);
+            }
+        });
+
+        auto2sButton.addEventListener('click', () => {
+            autoAdvance(2000);
+        });
+
+        auto3sButton.addEventListener('click', () => {
+            autoAdvance(3000);
+        });
+
+        auto5sButton.addEventListener('click', () => {
+            autoAdvance(5000);
+        });
+
+        // Load and display initial image and JSON data
+        loadAndDisplayImage(currentImageIndex);
+    </script>
+</body>
+</html>
