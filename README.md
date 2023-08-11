@@ -1,5 +1,5 @@
 # Miceviewer
-A tragically simple but lightweight side by side .PNG and .JSON viewer for NFT artists to both check and more easily showcase work to clients.
+A tragically simple but lightweight side by side image and .JSON viewer for NFT artists to both check and more easily showcase work to clients.
 
 <img width="500" alt="image" src="https://github.com/Miceprincipal/Miceviewer/assets/114647280/a155cf3f-6ccf-43cf-8115-2376105077c4">
 
@@ -48,6 +48,12 @@ Image and json folder locations are here.
         function loadAndDisplayImage(index) {
             currentImage.src = `images/${index}.png`;
             jsonIframe.src = `json/${index}.json`;
+
+You can also edit this like 
+
+            currentImage.src = `images/${index}.png
+
+to ...     currentImage.src = `images/${index}.jpg`;etc to switch to other picture formats if needed
 
 It's... basic.
 
