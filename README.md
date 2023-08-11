@@ -10,9 +10,8 @@ As it stands its setup to handle 10000 images starting at 0.png.
 
 If need be alter the following line to required numbers:
 
-let currentImageIndex = 0;
-        const totalImages = 10000;
-
+        let currentImageIndex = 0;
+        const totalImages = 10000; // Assuming you have 10000 images (0.png to 9999.png)
 
 If you wish to adjust the slideshow timings 
 
@@ -30,9 +29,14 @@ If you wish to adjust the slideshow timings
 
 just alter the timings in thousandths of a second and then
 
-   const auto2sButton = document.getElementById('auto-2s-button');
+        const currentImage = document.getElementById('current-image');
+        const jsonIframe = document.getElementById('json-iframe');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const auto2sButton = document.getElementById('auto-2s-button');
         const auto3sButton = document.getElementById('auto-3s-button');
         const auto5sButton = document.getElementById('auto-5s-button');
+        const stopButton = document.getElementById('stop-button');
 
 relabel buttons as needed.
 
