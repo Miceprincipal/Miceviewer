@@ -1,6 +1,9 @@
 # Miceviewer
 A tragically simple but lightweight side by side .PNG and .JSON viewer for NFT artists to both check and more easily showcase work to clients.
 
+<img width="500" alt="image" src="https://github.com/Miceprincipal/Miceviewer/assets/114647280/a155cf3f-6ccf-43cf-8115-2376105077c4">
+
+
 Just a painfully simple little html-based side by side viewer that can be dropped painlessly into the root folder of any nft compiler that uses a build folder with image and json output folders.
 There is also a version to be dropped straight inside build folders with zero editing to make life easier for showing clients work. 
 
