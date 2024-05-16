@@ -7,6 +7,8 @@ A tragically simple but lightweight side by side image and .JSON viewer for NFT 
 Just a painfully simple little html-based side by side viewer that can be dropped painlessly into the root folder of any nft compiler that uses a build folder with image and json output folders.
 There is also a version to be dropped straight inside build folders with zero editing to make life easier for showing clients work. 
 
+There is now a v2 version that has a slightly less vile appearance but does require a seperate style sheet. As literally all that changed was I barely learnt some more CSS I'm not claim it a new release...
+
 It has a 3 speed slideshow option with 2,3 and 5 second options as well as regular next and previous options.
 
 As it stands its setup to handle 10000 images starting at 0.png. 
